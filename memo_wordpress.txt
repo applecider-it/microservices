@@ -1,0 +1,25 @@
+-----------------------------------
+
+開発サーバーを起動
+
+----
+
+ヘッドレスCMS用wordpress
+
+
+cd ~/workspace/github/rails-app/wordpress
+
+docker compose up
+
+  最初は何度か起動しないといけない場合がある
+
+--
+
+http://localhost:8080/wp-admin/
+
+admin / admin
+
+パーマリンク設定を「日付と投稿名」にしないとAPIが使えない
+
+-----------------------------------
+
