@@ -1,0 +1,38 @@
+-----------------------------------
+
+開発サーバーを起動
+
+----
+
+go
+
+websocketサーバー起動
+
+cd ~/workspace/github/rails-app/go
+
+go run ./cmd/websocket-server
+
+--
+
+本番環境
+
+go build -o ./bin/websocket-server ./cmd/websocket-server
+
+./bin/websocket-server
+
+
+-----------------------------------
+
+セットアップ
+
+----
+
+Go
+
+
+cd ~/workspace/github/rails-app/go
+
+go mod tidy
+
+cp .env.example .env
+
