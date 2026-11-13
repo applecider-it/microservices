@@ -7,7 +7,7 @@
 ヘッドレスCMS用wordpress
 
 
-cd ~/workspace/github/rails-app/wordpress
+cd ~/workspace/github/microservices/wordpress
 
 docker compose up
 
