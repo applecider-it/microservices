@@ -72,7 +72,7 @@ WebSocketサーバーから接続切断情報をRedisにPublish
 
 ## Redis Pub/Sub連携メッセージ送信時
 
-Pub/Subのチャンネル名: `[redis_prefix]broadcast`
+Pub/Subのチャンネル名: 環境変数`APP_WS_REDIS_CHANNEL`
 
 ```
 {
