@@ -76,6 +76,8 @@ export default class Server {
   private async onConnect(wss: WebSocketServer, ws: WebSocket) {
     const user = ws.user as WebSocketUser;
 
+    log('onConnect', user)
+
     const channel = user.channel;
 
     // 接続したユーザーのみに、ユーザー一覧を送信
@@ -97,6 +99,8 @@ export default class Server {
   /** 切断時の処理 */
   private async onDisconnect(wss: WebSocketServer, ws: WebSocket) {
     const user = ws.user as WebSocketUser;
+
+    log('onDisconnect', user)
 
     const channel = user.channel;
 
