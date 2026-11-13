@@ -15,22 +15,17 @@ export default class RedisCtrl {
   /** publishで利用するRedisクラス（pub/subはインスタンスを分けないと動作しなくなる） */
   private redisPub;
 
-  /** pub/subで利用するチャンネル */
-  private pubsubChannel;
-
   /** メッセージ受信時のコールバック */
   private callback: Function;
 
   constructor(callback: Function, redisUrl: string) {
     this.callback = callback;
-    this.pubsubChannel =
-      appConfig.redis.prefix + appConfig.webSocketRedis.channel;
 
     this.redisSub = new Redis(redisUrl);
     this.redisPub = new Redis(redisUrl);
 
     // Redisの連携用チャンネルをsubscribeする
-    this.redisSub.subscribe(this.pubsubChannel, async (err, count) => {
+    this.redisSub.subscribe(appConfig.webSocketRedis.channel, async (err, count) => {
       if (err) console.error(err);
       else console.log(`Subscribed to ${count} channel(s)`);
     });
@@ -74,6 +69,6 @@ export default class RedisCtrl {
       data,
       type,
     };
-    await this.redisPub.publish(this.pubsubChannel, JSON.stringify(sendData));
+    await this.redisPub.publish(appConfig.webSocketRedis.channel, JSON.stringify(sendData));
   }
 }

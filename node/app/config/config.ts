@@ -13,14 +13,11 @@ export const appConfig = {
 
   redis: {
     url: process.env.APP_REDIS_URL as string,
-
-    /** プレフィックス */
-    prefix: process.env.APP_REDIS_PREFIX as string,
   },
 
   /** WebSocketのRedis連携 */
   webSocketRedis: {
     /** WebSocketサーバーのRedis Pub/Subで利用するチャンネル */
-    channel: 'broadcast',
+    channel: process.env.APP_WS_REDIS_CHANNEL as string,
   },
 } as const;
