@@ -5,7 +5,7 @@
 
 python
 
-cd ~/workspace/github/laravel-app/python
+cd ~/workspace/github/microservices/python
 
 source venv/bin/activate
 
