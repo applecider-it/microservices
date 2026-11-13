@@ -1,0 +1,41 @@
+-----------------------------------
+
+セレニウム起動
+
+
+cd ~/workspace/github/microservices/selenium
+
+source venv/bin/activate
+
+python -m app.entrypoints.main sample
+
+python -m app.entrypoints.main sample2
+
+----
+
+ログイン
+
+python -m app.entrypoints.main
+
+通常のログインをすると、状態が維持される
+
+-----------------------------------
+
+セットアップ
+
+----
+
+selenium
+
+
+cd ~/workspace/github/microservices/selenium
+
+python3 -m venv venv
+
+source venv/bin/activate
+
+pip install --upgrade pip
+
+pip install -r requirements.txt
+
+-----------------------------------
