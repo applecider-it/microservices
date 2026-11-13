@@ -1,0 +1,31 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && tsc-alias"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ioredis": "^5.8.2",
+    "jsonwebtoken": "^9.0.2",
+    "ws": "^8.18.3"
+  },
+  "imports": {
+    "#services/*": "./services/*"
+  },
+  "devDependencies": {
+    "@types/ioredis": "^4.28.10",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20.19.26",
+    "@types/ws": "^8.18.1",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.9.3"
+  }
+}

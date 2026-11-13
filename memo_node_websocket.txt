@@ -1,0 +1,44 @@
+-----------------------------------
+
+開発サーバーを起動
+
+----
+
+node
+
+foremanで実行すると、foremanが.envを読み込むため環境変数が混乱してしまうので、
+nodeディレクトリに移動してから実行したほうが、正確な動作確認ができる。
+
+
+websocketサーバー起動
+
+cd ~/workspace/github/laravel-app/node
+
+npx tsx watch ./app/entrypoints/websocket-server.js
+
+--
+
+本番起動
+
+npm run build
+
+node dist/entrypoints/websocket-server.js
+
+
+-----------------------------------
+
+セットアップ
+
+
+node
+
+cd ~/workspace/github/laravel-app/node
+
+npm ci
+
+cp .env.example .env
+
+-----------------------------------
+
+
+
