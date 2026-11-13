@@ -10,7 +10,6 @@ type Config struct {
 	WebSocket WebSocketConfig
 	JwtSecret string
 	Redis     RedisConfig
-	RailsHost string
 	// ブロードキャスト用Redis pub/subチャンネル
 	RedisPubSubChannel string
 }
@@ -41,8 +40,6 @@ func Load() *Config {
 			Addr: os.Getenv("APP_REDIS_ADDR"),
 			DB:   redisDB,
 		},
-
-		RailsHost: os.Getenv("APP_RAILS_HOST"),
 
 		RedisPubSubChannel: "broadcast",
 	}
