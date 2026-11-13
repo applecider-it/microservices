@@ -1,5 +1,9 @@
 # マイクロサービス
 
+- [設計](./documents/design.md)
+
+## 機能
+
 - soketi(Pusher互換のWebSocketサーバー)
 - PythonのAIサーバー
 - ヘッドレスCMS用wordpress
