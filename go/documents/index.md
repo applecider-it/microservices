@@ -41,7 +41,7 @@ Redis Pub/Sub連携のみで動作する。
 
 ## Redis Pub/Sub連携
 
-Pub/Subのチャンネル名: broadcast
+Pub/Subのチャンネル名: 環境変数`APP_REDIS_PUBSUB_CHANNEL`
 
 ```
 {
