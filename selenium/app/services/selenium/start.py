@@ -16,8 +16,6 @@ def start_selenium():
 
   driver = init_driver()
 
-  driver.get("http://localhost:3000/")
-
   time.sleep(0.5)
 
   _start_pattern(driver, args.pattern_name)

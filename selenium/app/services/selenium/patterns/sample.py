@@ -8,6 +8,10 @@ def start_sample(driver):
 
 # セットアップ
 def _setup(driver):
+  driver.get("http://localhost:3000/")
+
+  time.sleep(0.5)
+
   link = driver.find_element(By.LINK_TEXT, "development")
   link.click()
 
