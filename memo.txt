@@ -7,6 +7,7 @@ port
 
 soketi: 6001
 ヘッドレスCMS用wordpress: 8080
+Go Websocketサーバー: 3030
 
 -----------------------------------
 
