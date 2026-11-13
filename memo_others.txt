@@ -1,0 +1,71 @@
+-----------------------------------
+
+Redis
+
+redis-cli
+
+キー取得
+
+keys *
+
+値取得
+
+get key
+
+rpushの値の取得
+
+LRANGE key 0 -1
+
+publish受信
+
+PSUBSCRIBE *
+
+モニター
+
+MONITOR
+
+-----------------------------------
+
+nginx
+
+systemctl status nginx
+systemctl status php8.3-fpm
+
+sudo service nginx restart
+sudo service php8.3-fpm restart
+
+sudo vi /etc/nginx/sites-available/laravel_app
+
+http://localhost:8080/
+
+-----------------------------------
+
+メールキャッチャー
+
+
+dockerデスクトップ起動
+
+docker run -d --name mailhog -p 1025:1025 -p 8025:8025 mailhog/mailhog
+
+一度作った後は、Docker Desktopから起動できる
+
+
+状態確認
+docker ps -a
+
+再起動
+docker start mailhog
+
+
+http://localhost:8025/
+
+
+確認方法
+
+php artisan tinker
+
+Mail::raw('MailHog テスト', function($m){
+    $m->to('test@example.com')->subject('MailHog from WSL');
+});
+
+-----------------------------------
