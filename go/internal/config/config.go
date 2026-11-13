@@ -31,7 +31,7 @@ func Load() *Config {
 
 	return &Config{
 		WebSocket: WebSocketConfig{
-			Url: ":3030",
+			Url: os.Getenv("APP_WEBSOCKET_URL"),
 		},
 
 		JwtSecret: os.Getenv("APP_JWT_SECRET"),
@@ -41,6 +41,6 @@ func Load() *Config {
 			DB:   redisDB,
 		},
 
-		RedisPubSubChannel: "broadcast",
+		RedisPubSubChannel: os.Getenv("APP_REDIS_PUBSUB_CHANNEL"),
 	}
 }
