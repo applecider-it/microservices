@@ -8,6 +8,8 @@ port
 soketi: 6001
 ヘッドレスCMS用wordpress: 8080
 Go Websocketサーバー: 3030
+Node websocket: 8001
+python: 8090
 
 -----------------------------------
 

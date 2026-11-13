@@ -12,7 +12,7 @@ nodeディレクトリに移動してから実行したほうが、正確な動�
 
 websocketサーバー起動
 
-cd ~/workspace/github/laravel-app/node
+cd ~/workspace/github/microservices/node
 
 npx tsx watch ./app/entrypoints/websocket-server.js
 
@@ -32,7 +32,7 @@ node dist/entrypoints/websocket-server.js
 
 node
 
-cd ~/workspace/github/laravel-app/node
+cd ~/workspace/github/microservices/node
 
 npm ci
 
