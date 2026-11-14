@@ -11,9 +11,9 @@ wordpress/ <- ヘッドレスCMS用wordpress
 
 selenium/ <- セレニウム
 
-documents_go/ <- goマイクロサービス固有のドキュメント
-documents_node/ <- nodeマイクロサービス固有のドキュメント
-documents_python/ <- pythonマイクロサービス固有のドキュメント
+documents_go/ <- goマイクロサービスのドキュメント
+documents_node/ <- nodeマイクロサービスのドキュメント
+documents_python/ <- pythonマイクロサービスのドキュメント
 documents_soketi/ <- soketi関連のドキュメント
 
 memo_*.txt <- 機能ごとの作業用のメモ
