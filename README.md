@@ -1,6 +1,24 @@
 # 各種マイクロサービスとツール
 
-- [設計](./documents/design.md)
+## ディレクトリ構成
+
+```
+go/ <- goマイクロサービス
+node/ <- nodeマイクロサービス
+python/ <- pythonマイクロサービス
+soketi/ <- soketi起動用
+wordpress/ <- ヘッドレスCMS用wordpress
+
+selenium/ <- セレニウム
+
+documents_go/ <- goマイクロサービス固有のドキュメント
+documents_node/ <- nodeマイクロサービス固有のドキュメント
+documents_python/ <- pythonマイクロサービス固有のドキュメント
+documents_soketi/ <- soketi関連のドキュメント
+
+memo_*.txt <- 機能ごとの作業用のメモ
+memo.txt <- 作業用のメモ
+```
 
 ## 機能
 
@@ -16,7 +34,7 @@
 
 ## リンク
 
-- [Pythonマイクロサービスのドキュメント](./python/documents/index.md)
-- [Soketiのドキュメント](./soketi/documents/index.md)
-- [Goマイクロサービスのドキュメント](./go/documents/index.md)
-- [Nodeマイクロサービスのドキュメント](./node/documents/index.md)
+- [Pythonマイクロサービスのドキュメント](./documents_python/index.md)
+- [Soketiのドキュメント](./documents_soketi/index.md)
+- [Goマイクロサービスのドキュメント](./documents_go/index.md)
+- [Nodeマイクロサービスのドキュメント](./documents_node/index.md)
