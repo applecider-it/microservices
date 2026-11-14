@@ -32,7 +32,7 @@ memo.txt <- 作業用のメモ
 
 - selenium
 
-## リンク
+## ドキュメント
 
 - [Pythonマイクロサービスのドキュメント](./documents_python/index.md)
 - [Soketiのドキュメント](./documents_soketi/index.md)
