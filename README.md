@@ -9,8 +9,6 @@ python/ <- pythonマイクロサービス
 soketi/ <- soketi起動用
 wordpress/ <- ヘッドレスCMS用wordpress
 
-selenium/ <- セレニウム
-
 documents_*/ <- 機能ごとのドキュメント
 
 memo_*.txt <- 機能ごとの作業用のメモ
@@ -24,10 +22,6 @@ memo.txt <- 作業用のメモ
 - ヘッドレスCMS用wordpress
 - GoのWebSocketサーバー
 - NodeのWebSocketサーバー
-
-## ツール
-
-- selenium
 
 ## ドキュメント
 
