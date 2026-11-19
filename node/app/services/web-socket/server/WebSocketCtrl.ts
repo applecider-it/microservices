@@ -57,10 +57,10 @@ export default class WebSocketCtrl {
 
     ws.on('close', () => {
       log(`Disconnected: ${ws.user?.name}`);
-      this.callbackDisconnected(this.wss, ws);
+      this.callbackDisconnected(ws);
     });
 
-    this.callbackConnected(this.wss, ws);
+    this.callbackConnected(ws);
   }
 
   // getter
