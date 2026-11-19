@@ -54,6 +54,8 @@ export default class Server {
       },
       redisUrl,
     );
+
+    this.broadcastCtrl.assign(this.webSocketCtrl);
   }
 
   /** Redisメッセージ受信時の処理 */
@@ -64,31 +66,44 @@ export default class Server {
   ) {
     this.usersCtrl.updateGlobalUser(sender, incoming, type);
 
-    await this.broadcastCtrl.broadcast(
-      sender,
-      incoming,
-      type,
-      this.webSocketCtrl.getWss(),
-    );
+    await this.broadcastCtrl.broadcast(sender, incoming, type);
   }
 
   /** 接続時の処理 */
   private async onConnect(wss: WebSocketServer, ws: WebSocket) {
     const user = ws.user as WebSocketUser;
 
-    log('onConnect', user)
+    log('onDisconnect', user);
 
-    const channel = user.channel;
+    this.sendConnected(wss, ws);
+    this.sendConnectOther(ws);
+  }
 
-    // 接続したユーザーのみに、ユーザー一覧を送信
+  /** 切断時の処理 */
+  private async onDisconnect(wss: WebSocketServer, ws: WebSocket) {
+    const user = ws.user as WebSocketUser;
+
+    log('onDisconnect', user);
+
+    this.sendDisconnectOther(ws);
+  }
+
+  /** 接続したユーザーのみに、ユーザー一覧を送信 */
+  private async sendConnected(wss: WebSocketServer, ws: WebSocket) {
     ws.send(
       JSON.stringify({
         type: 'connected',
         users: this.usersCtrl.getSameChannelUsers(wss, ws),
       }),
     );
+  }
 
-    // 同じチャンネル全体に、接続したユーザーの情報を送信
+  /** 同じチャンネル全体に、接続したユーザーの情報を送信 */
+  private async sendConnectOther(ws: WebSocket) {
+    const user = ws.user as WebSocketUser;
+
+    const channel = user.channel;
+
     const type = 'connectOther';
     const data = {
       user: this.broadcastCtrl.toBroadcastUser(user),
@@ -96,15 +111,12 @@ export default class Server {
     await this.redisCtrl.publish(channel, data, type);
   }
 
-  /** 切断時の処理 */
-  private async onDisconnect(wss: WebSocketServer, ws: WebSocket) {
+  /** 同じチャンネル全体に、切断したユーザーの情報を送信 */
+  private async sendDisconnectOther(ws: WebSocket) {
     const user = ws.user as WebSocketUser;
-
-    log('onDisconnect', user)
 
     const channel = user.channel;
 
-    // 同じチャンネル全体に、切断したユーザーの情報を送信
     const type = 'disconnectOther';
     const data = {
       user: this.broadcastCtrl.toBroadcastUser(user),

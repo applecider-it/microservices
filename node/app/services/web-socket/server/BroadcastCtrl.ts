@@ -1,22 +1,33 @@
 import { log } from '@/services/system/log.js';
 
-import { WebSocket, type WebSocketServer } from 'ws';
+import { WebSocket } from 'ws';
 
 import { WebSocketUser, Incoming, BroadcastSendData } from '../types.js';
+
+import type WebSocketCtrl from './WebSocketCtrl.js';
 
 /**
  * WebSocket サーバーのBroadcast管理
  */
 export default class BroadcastCtrl {
+  /** WebSocket サーバーのWebSocket管理 */
+  private webSocketCtrl!: WebSocketCtrl;
+
+  /** 割り当て */
+  public async assign(webSocketCtrl: WebSocketCtrl) {
+    this.webSocketCtrl = webSocketCtrl;
+  }
+
   /** 送信処理 */
   public async broadcast(
     sender: WebSocketUser,
     incoming: Incoming,
     type: string,
-    wss: WebSocketServer,
   ) {
     log('incoming', incoming);
     log('sender', sender);
+
+    const wss = this.webSocketCtrl.getWss();
 
     const sendData: BroadcastSendData = {
       type: type,
