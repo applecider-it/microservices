@@ -3,7 +3,7 @@ import { IncomingMessage } from 'http';
 
 import { log } from '@/services/system/log.js';
 
-import AuthCtrl from './AuthCtrl.js';
+import AuthCtrl from './web-socket-ctrl/AuthCtrl.js';
 
 /**
  * WebSocket サーバーのWebSocket管理
@@ -23,11 +23,10 @@ export default class WebSocketCtrl {
     port: number,
     callbackConnected: Function,
     callbackDisconnected: Function,
-    authCtrl: AuthCtrl,
   ) {
     this.callbackConnected = callbackConnected;
     this.callbackDisconnected = callbackDisconnected;
-    this.authCtrl = authCtrl;
+    this.authCtrl = new AuthCtrl();
 
     this.wss = new WebSocketServer({ host, port });
 

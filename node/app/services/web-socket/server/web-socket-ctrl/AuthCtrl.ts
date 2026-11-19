@@ -3,7 +3,7 @@ import { type IncomingMessage } from 'http';
 
 import { log } from '@/services/system/log.js';
 
-import { WebSocketUser } from '../types.js';
+import { WebSocketUser } from '../../types.js';
 
 import { appConfig } from '@/config/config.js';
 

@@ -2,9 +2,9 @@ import { log } from '@/services/system/log.js';
 
 import { WebSocket } from 'ws';
 
-import { WebSocketUser, Incoming, BroadcastSendData } from '../types.js';
+import { WebSocketUser, Incoming, BroadcastSendData } from '../../types.js';
 
-import type WebSocketCtrl from './WebSocketCtrl.js';
+import type WebSocketCtrl from '../WebSocketCtrl.js';
 
 /**
  * WebSocket サーバーのBroadcast管理

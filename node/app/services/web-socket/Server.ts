@@ -5,8 +5,6 @@ import { appConfig } from '@/config/config.js';
 
 import RedisCtrl from './server/RedisCtrl.js';
 import WebSocketCtrl from './server/WebSocketCtrl.js';
-import UsersCtrl from './server/UsersCtrl.js';
-import AuthCtrl from './server/AuthCtrl.js';
 import SendCtrl from './server/SendCtrl.js';
 
 import { WebSocketUser, Incoming } from './types.js';
@@ -19,8 +17,6 @@ export default class Server {
   private redisCtrl;
   /** WebSocket サーバーのWebSocket管理 */
   private webSocketCtrl;
-  /** WebSocket サーバーの全てのユーザー管理 */
-  private usersCtrl;
   /** WebSocket サーバーの送信管理 */
   private sendCtrl;
 
@@ -29,9 +25,6 @@ export default class Server {
     const port = appConfig.webSocket.port;
     const redisUrl = appConfig.redis.url;
 
-    const authCtrl = new AuthCtrl();
-
-    this.usersCtrl = new UsersCtrl();
     this.sendCtrl = new SendCtrl();
 
     // WebSocket管理初期化
@@ -44,7 +37,6 @@ export default class Server {
       async (ws: WebSocket) => {
         await this.onDisconnect(ws);
       },
-      authCtrl,
     );
 
     // Redis管理初期化
@@ -56,11 +48,7 @@ export default class Server {
     );
 
     // 割り当て
-    this.sendCtrl.assign(
-      this.redisCtrl,
-      this.webSocketCtrl,
-      this.usersCtrl,
-    );
+    this.sendCtrl.assign(this.redisCtrl, this.webSocketCtrl);
   }
 
   /** Redisメッセージ受信時の処理 */

@@ -6,8 +6,8 @@ import { WebSocketUser, Incoming, BroadcastSendData } from '../types.js';
 
 import type RedisCtrl from './RedisCtrl.js';
 import type WebSocketCtrl from './WebSocketCtrl.js';
-import type UsersCtrl from './UsersCtrl.js';
-import BroadcastCtrl from './BroadcastCtrl.js';
+import UsersCtrl from './send-ctrl/UsersCtrl.js';
+import BroadcastCtrl from './send-ctrl/BroadcastCtrl.js';
 
 /**
  * WebSocket サーバーの送信管理
@@ -25,17 +25,16 @@ export default class SendCtrl {
 
   constructor() {
     this.broadcastCtrl = new BroadcastCtrl();
+    this.usersCtrl = new UsersCtrl();
   }
 
   /** 割り当て */
   public async assign(
     redisCtrl: RedisCtrl,
     webSocketCtrl: WebSocketCtrl,
-    usersCtrl: UsersCtrl,
   ) {
     this.redisCtrl = redisCtrl;
     this.webSocketCtrl = webSocketCtrl;
-    this.usersCtrl = usersCtrl;
 
     this.broadcastCtrl.assign(this.webSocketCtrl);
   }

@@ -2,7 +2,7 @@ import { type WebSocket, type WebSocketServer } from 'ws';
 
 import { log } from '@/services/system/log.js';
 
-import { WebSocketUser, Incoming } from '../types.js';
+import { WebSocketUser, Incoming } from '../../types.js';
 
 /**
  * WebSocket サーバー管理の全てのユーザー管理
