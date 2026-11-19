@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"myapp/internal/config"
-	"myapp/internal/services/websocket-server/data"
+	"myapp/internal/services/data"
 	"myapp/internal/services/websocket-server/types"
 
 	"github.com/go-redis/redis/v8"
